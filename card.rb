@@ -1,12 +1,19 @@
 class Card
-  attr_reader :value, :matching_card
+  attr_reader :value
   attr_accessor :face_up
 
   def initialize(value)
     @value = value
     @face_up = false
-    @matching_card = value
+    @location = []
+    
+    # @matching_card = value
   end
+
+  # def matching_card(match_value)
+  #   @value = match_value
+  #   @face_up == false
+  # end
 
   def reveal
     if @face_up == false
