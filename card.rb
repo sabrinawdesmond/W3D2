@@ -22,10 +22,6 @@ class Card
 
   def ==(card)
     return self.value == card.value
-  end
-
-
-    
-
+  end   
 
 end
