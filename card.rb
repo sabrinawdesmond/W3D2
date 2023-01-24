@@ -6,7 +6,7 @@ class Card
     @value = value
     @face_up = false
     @location = []
-    
+
     # @matching_card = value
   end
 
@@ -16,9 +16,7 @@ class Card
   # end
 
   def reveal
-    if @face_up == false
-      @face_up = true
-    end
+    Game.user_board[pos] = cheat_board[pos]
   end
 
   def hide

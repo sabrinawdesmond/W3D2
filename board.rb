@@ -25,10 +25,10 @@ class Board
     @grid.flatten.count(' ')
   end
 
-  def card_initalizer(value)
-    pair_1 = Card.new(value)
-    pair_2 = Card.new(value)
-  end
+  # def card_initalizer(value)
+  #   pair_1 = Card.new(value)
+  #   pair_2 = Card.new(value)
+  # end
 
   # def get_random_pos
   #   row = rand(0...@grid.length)
@@ -52,12 +52,16 @@ class Board
     end
   end
 
-  def render # => print method
-    #should print current board
-    @grid.each do |row|
-      puts row.join(" ")
-    end
-  end
+  # def cheat_board # => print method
+  #   #should print current board
+    
+  # end
+
+  # def user_board
+  #   @grid.each do |row|
+  #     puts row.join(" ")
+  #   end
+  # end
 
   def won?
     # return @grid.all? == ' '
