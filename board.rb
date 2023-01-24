@@ -2,11 +2,9 @@ require_relative "card"
 
 class Board
 
-  # deck = [:1, :2, :3, :4, :5, :6, :7, :8]
-
   def initialize
-    @grid = Array.new(4) { Array.new(4, " ") }
-    @size = 16
+    @grid = Array.new(2) { Array.new(2, " ") }
+    @size = 4
   end
 
   def [](pos)
@@ -19,8 +17,12 @@ class Board
     @grid[row][col] = val
   end
 
-  def empty?(position)
-    self[position] == " "
+  def empty?(pos)
+    self[pos] == " "
+  end
+
+  def empty_count
+    @grid.flatten.count(' ')
   end
 
   def card_initalizer(value)
@@ -28,17 +30,26 @@ class Board
     pair_2 = Card.new(value)
   end
 
+  # def get_random_pos
+  #   row = rand(0...@grid.length)
+  #     col = rand(0...@grid.length)
+  #     pos = [row, col]
+      
+  # end
+
   def populate
-    placed_cards = 0
-
-    while placed_cards < @size
-      card_initalizer(value)
-
-      placed_cards += 2
+    # deck = Array('a'..'b')
+    deck = ['a', 'a', 'b', 'b']
+    i = 0
+    while self.empty_count > 0
+      row = rand(0...@grid.length)
+      col = rand(0...@grid.length)
+      pos = [row, col]
+      if self.empty?(pos)
+        self[pos] = Card.new(deck[i]).value
+        i += 1
+      end
     end
-    # for each grid element
-    # place random card and match
-    #
   end
 
   def render # => print method
@@ -61,4 +72,5 @@ class Board
       card.reveal
     end
   end
+
 end
